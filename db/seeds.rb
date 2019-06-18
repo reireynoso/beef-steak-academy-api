@@ -118,9 +118,11 @@ brendensList2.assignments.each { |assignment|
   Task.create(task)
 }
 
+puts "User1"
+
 ##### mallory
 
-mallory = User.create(first_name:"Big",last_name:"Homie",email:"mallory@gmail.com",bio:"El Presidente of the Heads of State xp")
+mallory = User.create(first_name:"Big",last_name:"Homie",email:"mallory@gmail.com",bio:"El Presidente of the Heads of State xp", password:"1234")
 
 malloryList1 = List.create(user_id:mallory.id, course_id:course1.id)
 
@@ -150,8 +152,10 @@ malloryList2.assignments.each { |assignment|
   Task.create(task)
 }
 
+puts "User2"
+
 ####### rei
-rei = User.create(first_name:"Crying",last_name:"Rei",email:"rei@gmail.com",bio:"Somewhere crying to luka for losing xp")
+rei = User.create(first_name:"Crying",last_name:"Rei",email:"rei@gmail.com",bio:"Somewhere crying to luka for losing xp",password:"1234")
 
 reiList1 = List.create(user_id:rei.id, course_id:course2.id)
 reiList1.assignments.each{ |assignment|

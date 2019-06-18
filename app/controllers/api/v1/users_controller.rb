@@ -10,6 +10,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
+    byebug
 		@user = User.new(user_params)
 
 		if @user.save
