@@ -9,6 +9,18 @@ class Api::V1::UsersController < ApplicationController
     render json: @user, status: :accepted
   end
 
+  def create
+		user = User.new(user_params)
+
+		if user.save
+			token = encode_token(user.id)
+
+			render json: {user: UserSerializer.new(user), token: token}
+		else
+			render json: {errors: user.errors.full_messages}
+		end
+	end
+
   def update
     @user.update(user_params)
     if @user.save
@@ -21,7 +33,7 @@ class Api::V1::UsersController < ApplicationController
   private
  
   def user_params
-    params.permit(:title,:description,:img_url,:subject,:id)
+    params.permit(:title,:description,:img_url,:subject,:password)
   end
  
   def find_user
