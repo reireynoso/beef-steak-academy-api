@@ -6,7 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Task.destroy_all
+List.destroy_all
 Assignment.destroy_all
+User.destroy_all
 Course.destroy_all
 
 course1 = Course.create(title:"Mod1 Intro To Flatiron",subject:"Ruby", description:"Take your knowledge of ruby to the next level and learn key concepts of database managment.", img_url:"https://seeklogo.net/wp-content/uploads/2016/07/ruby-vector-logo.png")
@@ -83,18 +86,97 @@ assignment40 = Assignment.create(title:"Sushi Saga Review", description:"Review 
 # t.string "bio"
 # t.string "img_url"
 
+#### brenden
 brenden = User.create(first_name:"Ya",last_name:"Boy",email:"brenden@gmail.com",bio:"Head of State to the Heads of State xp")
 
 brendensList1 = List.create(user_id:brenden.id, course_id:course4.id)
+#title: "Hashes and the Internet", description: "How Hashes Run the Internet", content: "", video_url: "XwUeicw7Osk", course_id: 20
+
+brendensList1.assignments.each { |assignment|  
+  task = {
+    title:assignment.title,
+    description:assignment.description,
+    content:assignment.content,
+    video_url:assignment.video_url,
+    list_id:brendensList1.id,
+    status:"static"
+  }
+  Task.create(task)
+}
+
 brendensList2 = List.create(user_id:brenden.id, course_id:course3.id)
+
+brendensList2.assignments.each { |assignment|
+  task = {
+    title:assignment.title,
+    description:assignment.description,
+    content:assignment.content,
+    video_url:assignment.video_url,
+    list_id:brendensList2.id,
+    status:"static"
+  }
+  Task.create(task)
+}
+
+##### mallory
 
 mallory = User.create(first_name:"Big",last_name:"Homie",email:"mallory@gmail.com",bio:"El Presidente of the Heads of State xp")
 
 malloryList1 = List.create(user_id:mallory.id, course_id:course1.id)
-malloryList2 = List.create(user_id:mallory.id, course_id:course4.id)
 
+#####copy assignments
+malloryList1.assignments.each { |assignment|
+  task = {
+    title:assignment.title,
+    description:assignment.description,
+    content:assignment.content,
+    video_url:assignment.video_url,
+    list_id:malloryList1.id,
+    status:"static"
+  }
+  Task.create(task)
+}
+
+malloryList2 = List.create(user_id:mallory.id, course_id:course4.id)
+malloryList2.assignments.each { |assignment|
+  task = {
+    title:assignment.title,
+    description:assignment.description,
+    content:assignment.content,
+    video_url:assignment.video_url,
+    list_id:malloryList2.id,
+    status:"static"
+  }
+  Task.create(task)
+}
+
+####### rei
 rei = User.create(first_name:"Crying",last_name:"Rei",email:"rei@gmail.com",bio:"Somewhere crying to luka for losing xp")
 
 reiList1 = List.create(user_id:rei.id, course_id:course2.id)
+reiList1.assignments.each{ |assignment|
+  task = {
+    title:assignment.title,
+    description:assignment.description,
+    content:assignment.content,
+    video_url:assignment.video_url,
+    list_id:reiList1.id,
+    status:"static"
+  }
+  Task.create(task)
+}
+
 reiList2 = List.create(user_id:rei.id, course_id:course4.id)
+reiList2.assignments.each { |assignment| 
+  task = {
+    title:assignment.title,
+    description:assignment.description,
+    content:assignment.content,
+    video_url:assignment.video_url,
+    list_id:reiList2.id,
+    status:"static"
+  }
+
+  Task.create(task)
+} 
 puts "Done"
