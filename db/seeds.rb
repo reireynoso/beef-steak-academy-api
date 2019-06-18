@@ -74,4 +74,27 @@ assignment19 = Assignment.create(title:"Component Lifecycle", description:"How T
 
 assignment40 = Assignment.create(title:"Sushi Saga Review", description:"Review React based on the practice code challenge.", content:"", video_url:"ScNQ95srobU", course_id:course4.id)
 
+
+#user data
+# t.string "first_name"
+# t.string "last_name"
+# t.string "email"
+# t.string "password_digest"
+# t.string "bio"
+# t.string "img_url"
+
+brenden = User.create(first_name:"Ya",last_name:"Boy",email:"brenden@gmail.com",bio:"Head of State to the Heads of State xp")
+
+brendensList1 = List.create(user_id:brenden.id, course_id:course4.id)
+brendensList2 = List.create(user_id:brenden.id, course_id:course3.id)
+
+mallory = User.create(first_name:"Big",last_name:"Homie",email:"mallory@gmail.com",bio:"El Presidente of the Heads of State xp")
+
+malloryList1 = List.create(user_id:mallory.id, course_id:course1.id)
+malloryList2 = List.create(user_id:mallory.id, course_id:course4.id)
+
+rei = User.create(first_name:"Crying",last_name:"Rei",email:"rei@gmail.com",bio:"Somewhere crying to luka for losing xp")
+
+reiList1 = List.create(user_id:rei.id, course_id:course2.id)
+reiList2 = List.create(user_id:rei.id, course_id:course4.id)
 puts "Done"
