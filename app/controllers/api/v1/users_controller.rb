@@ -33,8 +33,15 @@ class Api::V1::UsersController < ApplicationController
   private
  
   def user_params
-    params.permit(:title,:description,:img_url,:subject,:password)
+    params.permit(:first_name,:last_name,:bio,:email,:password,:img_url)
   end
+
+  t.string "first_name"
+  t.string "last_name"
+  t.string "email"
+  t.string "password_digest"
+  t.string "bio"
+  t.string "img_url"
  
   def find_user
     @user = User.find(params[:id])
