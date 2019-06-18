@@ -1,3 +1,3 @@
 class ListSerializer < ActiveModel::Serializer
-  attributes :id, :tasks
+  attributes :id, :tasks, :course
 end

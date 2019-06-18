@@ -1,7 +1,7 @@
 class Api::V1::AuthController < ApplicationController
   def login
     # check if my params contain the entered username and password
-    user = User.find_by(username: params[:username])
+    user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       token = encode_token(user.id)
       render json: {user: UserSerializer.new(user), token: token}
