@@ -4,6 +4,11 @@ class Api::V1::CoursesController < ApplicationController
     render json: @courses
   end
 
+  def show 
+    @course = find_course
+    render json:@course, status: :accepted
+  end
+
   def update
     @course.update(course_params)
     if @course.save
