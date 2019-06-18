@@ -87,7 +87,7 @@ assignment40 = Assignment.create(title:"Sushi Saga Review", description:"Review 
 # t.string "img_url"
 
 #### brenden
-brenden = User.create(first_name:"Ya",last_name:"Boy",email:"brenden@gmail.com",bio:"Head of State to the Heads of State xp")
+brenden = User.create(first_name:"Ya",last_name:"Boy",email:"brenden@gmail.com",bio:"Head of State to the Heads of State xp", password:"yoloo")
 
 brendensList1 = List.create(user_id:brenden.id, course_id:course4.id)
 #title: "Hashes and the Internet", description: "How Hashes Run the Internet", content: "", video_url: "XwUeicw7Osk", course_id: 20
