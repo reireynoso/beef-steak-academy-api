@@ -10,9 +10,17 @@ class Api::V1::ListsController < ApplicationController
   end 
 
   def create 
+    @user = User.find(list_params[:user_id])
+    @user.courses.each do |course|
+      if course.id === list_params[:course_id] 
+        render json: {errors:"Already enrolled in course." }, status: :unprocessible_entity
+
+        return 
+      end
+    end
     @list = List.create(list_params)
-    # @user = User.find(list_params.user_id)
-    if @list.valid?
+
+    if @list.valid? 
       ### copy assignments into tasks
       @list.assignments.each { |assignment|  
         task = {
