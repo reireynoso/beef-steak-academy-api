@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 			get "/auto_login", to: "auth#auto_login"
       resources :lists, only: [:index,:show, :create, :destroy]
-      resources :tasks, only: [:index,:show, :create,:update,:destroy]
+      resources :task, only: [:index,:show, :create,:update,:destroy]
     end
   end
 end

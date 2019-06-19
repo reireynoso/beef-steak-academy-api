@@ -1,5 +1,17 @@
 class Api::V1::TaskController < ApplicationController
+  def index 
+    @tasks = Task.all 
+    render json: @tasks
+  end
+
+  def show 
+    @task = find_task
+    render json:@task
+  end
+
   def update
+    # byebug
+    @task = find_task
     @task.update(task_params)
     if @task.save
       render json: @task, status: :accepted
