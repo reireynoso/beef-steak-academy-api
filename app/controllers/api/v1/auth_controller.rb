@@ -7,7 +7,7 @@ class Api::V1::AuthController < ApplicationController
       render json: {user: UserSerializer.new(user), token: token}
       # render json: user
     else
-      render json: {errors: "Some ting went wrong."}
+      render json: {errors: "Incorrect email or password"}
     end
   end
 
